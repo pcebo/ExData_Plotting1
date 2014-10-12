@@ -6,7 +6,7 @@ plot_dataset <- dataset[dataset[,1]=="1/2/2007" | dataset[,1]=="2/2/2007",]
 melt_data <- melt(plot_dataset, c(1,2))
 plot3_data <- melt_data[melt_data[,3]=="Sub_metering_1" | melt_data[,3]=="Sub_metering_2" | melt_data[,3]=="Sub_metering_3",]
 #create the plot
-plot(as.numeric(as.character((plot_dataset[,7]))),type="n", xaxt = 'n', ylab="Energy sub metering")
+plot(as.numeric(as.character((plot_dataset[,7]))),type="n", xaxt = 'n', ylab="Energy sub metering", xlab="")
 axis(side = 1, at = c(1,1440,2880), labels=c("Thursday", "Friday", "Saturday"))
 lines(as.numeric(as.character((plot_dataset[,7]))))
 lines(as.numeric(as.character((plot_dataset[,8]))), col="red")
