@@ -11,7 +11,7 @@ axis(side = 1, at = c(1,1440,2880), labels=c("Thursday", "Friday", "Saturday"))
 lines(as.numeric(as.character((plot_dataset[,7]))))
 lines(as.numeric(as.character((plot_dataset[,8]))), col="red")
 lines(as.numeric(as.character((plot_dataset[,9]))), col="blue")
-legend(2250,40,c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=c(1,1), lwd=c(2.5,2.5,2.5),col=c("black","red","blue"))
+legend(1800,40,c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=c(1,1), lwd=c(2.5,2.5,2.5),col=c("black","red","blue"))
 #output to a png and close the device
 dev.copy(png,file="plot3.png",width = 480, height = 480)
 dev.off()
