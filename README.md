@@ -1,3 +1,6 @@
+## Note to the marker:
+If you are wondering why some files are uploaded from a long time ago (before the start of the course), please note that I was taking this course last session (and therefore completed this assignment then) but had to unregister and re-register as other commitments did not allow me to complete assignment 2 on time. Thanks, Peter.
+
 ## Introduction
 
 This assignment uses data from
