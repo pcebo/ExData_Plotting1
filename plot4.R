@@ -1,7 +1,15 @@
 #load the dataset from working directory
 dataset <- read.table("household_power_consumption.txt", sep=";", header=TRUE)
+
+library(reshape2)
+
 #subset the dataset as needed
 plot_dataset <- dataset[dataset[,1]=="1/2/2007" | dataset[,1]=="2/2/2007",]
+
+#open the png device. Note that for this graph we, as in plot3, do this FIRST, since 
+#plotting and then copying causes sizing issues with the legend)
+png("plot4.png",width = 480, height = 480)
+
 #set up the charting area to hold 4 charts
 par(mfrow=c(2,2))
 
@@ -25,14 +33,13 @@ axis(side = 1, at = c(1,1440,2880), labels=c("Thursday", "Friday", "Saturday"))
 lines(as.numeric(as.character((plot_dataset[,7]))))
 lines(as.numeric(as.character((plot_dataset[,8]))), col="red")
 lines(as.numeric(as.character((plot_dataset[,9]))), col="blue")
-legend(700,40,c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=c(1,1), lwd=c(2.5,2.5,2.5),col=c("black","red","blue"))
+#note we remove the box around the legend using bty = "n"
+legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty = "n", lty=1, lwd =2.5,col=c("black", "red", "blue"))
 
 #plot chart 4
 plot(as.numeric(as.character((plot_dataset[,4]))), type="l", ylab="Global_reactive_power", xlab="datetime", xaxt = 'n')
 #add labels (we know from checking the data that there are 1,440 data items for each day)
 axis(side = 1, at = c(1,1440,2880), labels=c("Thursday", "Friday", "Saturday"))
-
-
 #output to a png and close the device
-dev.copy(png,file="plot4.png",width = 480, height = 480)
+
 dev.off()
